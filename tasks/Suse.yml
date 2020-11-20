@@ -15,7 +15,7 @@
 - name: "[Suse] Add the Stackdriver zypper repository."
   zypper_repository:
     name: Google Cloud Monitoring Agent Repository
-    repo: "https://{{ repo_host }}/yum/repos/{{ zypper_repo_name}}"
+    repo: "https://{{ repo_host }}/yum/repos/{{ zypper_repo_name }}"
     state: present
 
 - name: Import GPG Keys

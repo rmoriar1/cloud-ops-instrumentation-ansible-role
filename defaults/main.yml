@@ -19,7 +19,8 @@
 ### apache
 
 stackdriver_apache_enabled: no
-stackdriver_apache_status_url: http://local-stackdriver-agent.stackdriver.com/server-status?auto
+stackdriver_apache_status_url:
+  http://local-stackdriver-agent.stackdriver.com/server-status?auto
 
 stackdriver_apache_username: ""
 stackdriver_apache_password: ""
@@ -60,8 +61,8 @@ stackdriver_mongodb_prefer_secondary_query: false
 stackdriver_mysql_enabled: no
 
 stackdriver_mysql_host: localhost
-#stackdriver_mysql_port: 3306
-#stackdriver_mysql_socket: "..."
+# stackdriver_mysql_port: 3306
+# stackdriver_mysql_socket: "..."
 
 stackdriver_mysql_username: root
 stackdriver_mysql_password: ""
@@ -71,7 +72,8 @@ stackdriver_mysql_name: default
 ### nginx
 
 stackdriver_nginx_enabled: no
-stackdriver_nginx_status_url: http://local-stackdriver-agent.stackdriver.com/nginx_status
+stackdriver_nginx_status_url:
+  http://local-stackdriver-agent.stackdriver.com/nginx_status
 
 stackdriver_nginx_username: ""
 stackdriver_nginx_password: ""
@@ -96,7 +98,8 @@ stackdriver_rabbitmq_password: guest
 
 stackdriver_rabbitmq_host: localhost
 stackdriver_rabbitmq_port: 15672    # Change this to 55672 for versions < 3.0.
-stackdriver_rabbitmq_vhost: "%2F"   # "%2F" encodes "/", the default virtual host.
+# "%2F" encodes "/", the default virtual host.
+stackdriver_rabbitmq_vhost: "%2F"
 
 stackdriver_rabbitmq_url: "\
     http://{{ stackdriver_rabbitmq_host }}:{{ stackdriver_rabbitmq_port }}\
@@ -110,7 +113,8 @@ stackdriver_redis_port: 6379
 stackdriver_redis_password: ""
 stackdriver_redis_timeout: 2000     # Seconds
 
-stackdriver_redis_name: "{{ stackdriver_redis_host }}_{{ stackdriver_redis_port }}"
+stackdriver_redis_name:
+  "{{ stackdriver_redis_host }}_{{ stackdriver_redis_port }}"
 stackdriver_redis_servers:
   - name: "{{ stackdriver_redis_name }}"
     host: "{{ stackdriver_redis_host }}"

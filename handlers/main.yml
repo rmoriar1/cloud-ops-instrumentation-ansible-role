@@ -16,9 +16,9 @@
   service: name={{ stackdriver_collectd_service }} state=restarted
 
 - name: stackdriver updated
-  sudo: no
-  local_action:
-    module: stackdriver
+  become: no
+  delegate_to: localhost
+  stackdriver:
     event: annotation
     key: "{{ stackdriver_api_key }}"
     instance_id: "{{ stackdriver_host_id|default(ec2_id) }}"

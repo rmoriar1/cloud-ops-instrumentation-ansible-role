@@ -14,7 +14,7 @@
 ---
 - name: "[RedHat] Install the Python bindings for SELinux, for Ansible."
   yum:
-    name: libselinux-python 
+    name: libselinux-python
     state: present
 
 - name: "[RedHat] Add the Stackdriver yum repository."
@@ -26,7 +26,7 @@
     enabled: yes
     gpgcheck: yes
     repo_gpgcheck: yes
-    gpgkey: 
+    gpgkey:
       - "https://{{ repo_host }}/yum/doc/yum-key.gpg"
       - "https://{{ repo_host }}/doc/rpm-package-key.gpg"
 
@@ -39,7 +39,8 @@
 
 - name: "[RedHat] Install YAJL if needed for curl_json."
   yum: name=yajl state=present
-  when: stackdriver_enabled_plugins|intersect(stackdriver_plugins_based_on_curl_json)
+  when:
+    stackdriver_enabled_plugins|intersect(stackdriver_plugins_based_on_curl_json)
   notify:
     - restart collectd
     - stackdriver updated

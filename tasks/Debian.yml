@@ -26,7 +26,8 @@
 
 - name: "[Debian] Install YAJL if needed for curl_json."
   apt: name=libyajl2 state=present
-  when: stackdriver_enabled_plugins|intersect(stackdriver_plugins_based_on_curl_json)
+  when:
+    stackdriver_enabled_plugins|intersect(stackdriver_plugins_based_on_curl_json)
   notify:
     - restart collectd
     - stackdriver updated

@@ -13,15 +13,19 @@
 # limitations under the License.
 ---
 - name: Ensure the collectd configuration directory exists.
-  file: path={{ stackdriver_collectd_config_dir }} state=directory
+  file:
+    path: "{{ stackdriver_collectd_config_dir }}"
+    state: directory
+    mode: 0644
 
 - name: Render the configuration directory from templates.
   template:
     src: "{{ item }}.conf"
     dest: "{{ stackdriver_collectd_config_dir }}/{{ item }}.conf"
     validate: "{{ stackdriver_collectd_binary }} -tC %s"
+    mode: 0644
   with_items: '{{ stackdriver_enabled_plugins }}'
-  when: item != ""
+  when: item
   notify:
     - restart collectd
     - stackdriver updated

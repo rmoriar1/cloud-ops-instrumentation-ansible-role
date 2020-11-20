@@ -35,4 +35,5 @@ stackdriver_collectd_package: stackdriver-agent
 stackdriver_collectd_service: stackdriver-agent
 
 stackdriver_collectd_binary: /opt/stackdriver/collectd/sbin/stackdriver-collectd
-stackdriver_collectd_config_dir: /opt/stackdriver/collectd/etc/collectd.d/managed
+stackdriver_collectd_config_dir:
+  /opt/stackdriver/collectd/etc/collectd.d/managed
